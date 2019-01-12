@@ -1,0 +1,273 @@
+/* CSS Document */
+
+
+
+
+html {background-color:#eff0e0;}
+
+*+html html {background-color:#eff0e0;}
+
+body {
+background:#eff0e0;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+
+a img, a{
+	text-decoration: none;
+}
+
+#demo {
+text-align:right;
+}
+
+fieldset {
+position:relative;
+margin:auto;
+margin-top:5%;
+width:402px;
+*height:289px;
+border:1px solid #c4c4bc;
+}
+#req{
+	*height:200px;
+}
+
+#resetin{
+	*height:170px;	
+}
+#resetin{
+	*height:170px;	
+}
+#fpass{
+	*height:150px;	
+}
+
+legend {
+color:#c4c4bc;
+font-family:Arial, Helvetica, sans-serif;
+font-size: 18pt;
+font-weight: 600;
+}
+
+img {position:relative;}
+
+
+.textfield {
+background:url("images/email.jpg")  no-repeat 10% 10% ;
+width:365px;
+height:53px;
+
+border:none;
+font-family:Arial, Helvetica, sans-serif;
+font-stretch: expanded;
+font-size:13pt;
+font-weight: bold;
+color:#c4c4bc;
+padding-left:10px;
+margin-top:6%;
+margin-left:6%;
+margin-bottom:-2%;
+padding-top:15px\9;
+margin-bottom:2%\9;
+vertical-align: baseline;
+}
+
+
+*+html .textfield {
+background:url(images/email.jpg)  no-repeat ;
+width:365px;
+height:53px;
+border:none;
+font-family:Arial, Helvetica, sans-serif;
+font-stretch: expanded;
+font-size:13pt;
+font-weight: bold;
+color:#c4c4bc;
+padding-top:15px;
+padding-left:10px;
+margin-top:6%;
+margin-left:6%;
+margin-bottom:-2%;
+}
+/*email other button*/
+
+#button input {
+background-image:url("images/submit_button.gif");
+background-repeat:no-repeat;
+*background-color: red;
+
+width:145px;
+height:55px;
+border:none;
+border:hidden;
+*border: none;
+font-family:Arial, Helvetica, sans-serif;
+font-size:15pt;
+font-weight:normal;
+color:#EFF0E0;
+text-shadow: 1px 0px #8C2121;
+margin-right:-15px;
+}
+
+p#button {
+float:right;
+padding-right:1.8em;
+padding-top:.3em;
+}
+
+#mybutton input {
+background-image:url("images/submit_button.gif");
+*background-color: red;
+background-repeat:no-repeat;
+width:145px;
+height:55px;
+border:none;
+border:hidden;
+*border: none;
+font-family:Arial, Helvetica, sans-serif;
+font-size:15pt;
+font-weight:normal;
+color:#EFF0E0;
+text-shadow: 1px 0px #8C2121;
+margin-right:15px;
+}
+
+p#mybutton {
+float:right;
+padding-right:1.8em;
+padding-top:.3em;
+}
+
+/* for message.html */
+
+p#message {
+text-align:center;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:600;
+color:#c4c4bc;
+font-size:14pt;
+}
+
+/* for forgot-password.html */   
+
+fieldset#clickhere {
+margin:auto;
+margin-top:10%;
+width:402px;
+height:180px;
+border:1px solid #c4c4bc;
+}
+
+legend#forgotpassword {color:#c4c4bc;
+font-family:Arial, Helvetica, sans-serif;
+font-size: 18pt;
+font-weight: 600;
+}
+ 
+fieldset {
+	
+margin:auto;
+
+width:402px;
+
+border:1px solid #c4c4bc;
+}
+
+/* for changepassword */
+
+fieldset#changepassword {
+position: relative;
+font-size-adjust:none;
+margin:auto;
+width:402px;
+height:289px;
+border:1px solid #c2c3b8;
+}
+
+.mycontent {
+background:url(images/input.jpg)  no-repeat ;
+width:313px;
+height:53px;
+border:none;
+font-family:Arial, Helvetica, sans-serif;
+font-stretch: expanded;
+font-size:13pt;
+font-weight: bold;
+color:#c4c4bc;
+padding-left:10px;
+margin-top:6%;
+margin-left:10%;
+margin-bottom:-2%;
+padding-top:15px\9;
+}
+
+*+html .mycontent {
+padding-top:15px;
+}
+
+/* x*/
+#x{
+	position: relative;
+	right: -25px;
+	top: -34px;
+	float:right;
+}
+
+/* reset link ( demo ) */
+#information{ margin-top:0px; height:20px;}
+#information p{ padding:0;
+margin-top:-50px;
+
+}
+
+p.error{
+/*background: url('images/blue_cross.png') no-repeat 36% 50%;	*/
+}
+
+p.success{
+/*	background: url('images/blue_right.png') no-repeat 35% 50%; */
+}
+.error, .success{ font-family:Arial, Helvetica, sans-serif;
+font-stretch: expanded;
+font-size:13pt;
+font-weight: bold;
+color:#3c4884;
+}
+#resetbutton{ height:100px;}
+/* X reset link ( demo ) */
+#info{ 
+font:Arial, Helvetica, sans-serif; 
+font-size:12.5px;
+font-weight: ; 
+color:#222;
+margin-top:75px;
+padding-left:34%;
+height:18px;
+
+}
+
+#info p{ background: url(images/info.jpg )  no-repeat ;
+margin:0;
+padding-left:20px;
+}
+
+
+*+html #info p{ background: url(images/info.jpg )  15% no-repeat ;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

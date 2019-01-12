@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Forgot Password Script</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Forgot Password Script&rdquo; Documentation by &ldquo;SixthLife&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Forgot Password Script&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 20/3/2012<br>
+					By: Sixthlife<br>
+					Email: <a href="mailto:support@sixthlife.net">support@sixthlife.net</a>
+					</strong>
+				</p>
+		  </div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing Forgot Password Script. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/sixthlife">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+        	<li><a href="#filestructure">Main Files</a></li>
+            <li><a href="#database">Database</a></li>
+		    <li><a href="#install">Simple Integration</a></li>
+	      <li><a href="#Integration">Detailed Integration</a></li>
+			<li><a href="#dcustomize">Customize Design </a> </li>
+			<li><a href="#scustomize">Customize Script </a></li>
+			<li><a href="#recoverpasclass">RecoverPas Class</a></li>
+		</ol>
+		
+<hr>
+        	<h3 id="filestructure"><strong>A) File Structure</strong> - <a href="#toc">top</a></h3>
+            <ul>
+            <li>requestreset.php &nbsp; &nbsp;<i>User can enter username or email to request a password reset link from this page.</i></li>
+            <li>resetpassword.php &nbsp; &nbsp; <i>User clicks on the password reset link sent to their email address and resets password on this page.</i></li>
+            <li>resetinvalid.php &nbsp; &nbsp; <i>User redirected to this page when password reset link is invalid or expired.</i></li>
+            <li>includes  &nbsp; &nbsp; <i>contains configuratuion file, functions and classes.</i>
+          <ul>
+            	<li>class.recoverpas.php  &nbsp; &nbsp;<i>Recover Password class contains all the methods used throughout the script.</i></li>
+           		<li>rconfig.php  &nbsp; &nbsp;<i>Configuration file that has database information.</i></li>
+           	<li>rfunctions.php  &nbsp; &nbsp;<i>Contains only one function used for connecting to database.</i></li>
+            </ul>
+            </li>
+            <li>admin.css  &nbsp; &nbsp;<i>Css file - can be modified to change font color, page backgrounds, buttons etc.</i></li>
+            <li>installr  &nbsp; &nbsp;<i>This folder contains all the files needed for installtion of script. This folder should be deleted after installtion is complete.</i> </li>
+            </ul>
+      <hr>
+      <h3 id="database"><strong>B) Database</strong> - <a href="#toc">top</a></h3> 
+       <p>Check below a screenshot of a sample database that can work with forgot password script.  The Forgot Password Installer helps you create/ select tables needed in your database.<br />
+      
+         <i> Two tables are needed for forgot password script - users table and activeresets table.</i><br/><i>A users table is basically a table containing usernames and passwords of users.</i>
+      <ul>   <li>users table &nbsp; &nbsp; <i>has id, username, password and email column as a minimum.If an email column is not present then the username should be an email so that a password reset email can be sent.</i></li>
+          <li>activeresets table</li> </ul>
+          <img src="assets/images/database.jpg" alt="Database" style="width:600px;" /></p>
+		<hr>
+	  <h3 id="install"><strong>B) Simple Integration</strong> - <a href="#toc">top</a></h3>
+	  <p><i><strong>Prerequisites: </strong>Your project has a User Login Page and User Management, Admin or User's Area. </i></p>
+	  <p>Simple Integration lets you quickly integrate the &quot;Forgot Password&quot; script in your new or exisitng website/ project's  user management system. </p>
+	  <p><h3>Integration Steps:</h3> Please note that you can navigate to the previous pages to adjust the information you have entered by using the next and previous buttons towards the bottom of the page. </p>
+	  <ol>
+        <li>Extract ForgotPasswordScrip.zip.  <br/> <br/></li>
+	    <li>Upload the ForgotPassword folder to your server in the desired location. <br /> <br/>
+       <i> It is advised to rename the forgot password folder before uploading for security reasons. </i>   
+             Navigate to http://(location of Forgot Password Script Folder)/installr/ in your browser to start the installation.<br/>
+        <i> If you uploaded the script in your root directory your path is  http://yourdomainname.com/ForgotPassword/installr/</i><br />You will see the the page to enter database information. <br/> <br/></li>
+        <li><strong>Forgot Password Installtion - Start</strong><br />
+         Enter database hostname, database name, database uuser and password. Click <strong>"Next"</strong>.  <br/>
+          <em>Your web host can provide this information.</em><br/><br /></li>
+	    <li> <strong>Forgot Password Installtion - Step 1<br />
+	    </strong>On top of the page you see suggesstions for exisitng tables in your datbase that can be your users table. If you are not sure select &quot;Yes&quot;. You will be able to view your tables and select the appropriate one in next step.  <br/>If you do not have a users table you can create a basic users table with 2  users below. <br/>    <br/>
+       <strong> Table Prefix</strong><br/>
+	    If tables in your database are in format someprefix_tablename then someprefix is your table prefix and should be entered here. The table prefix if present in database tables is automatically shown or you have option to type it manually. <br/>    
+          <br/><strong>Minimum Password Length </strong><br />
+          You can set the minimum password length, the encryption type and validation that the newly generated passwords by the users will have.  Default is 6. <br/> 
+          <br/><strong>Password Validation</strong><br />
+          Password Validation specifies validation rules for new passwords that will be generated for users. <br/>
+          <strong> alpha </strong>to allow only alphabets<br/>
+          <strong> alphanumeric </strong>to allow only alphabets and numbers only<br/>
+          <strong> alphanumeric + special </strong>to allow only alphabets and numbers and special characters only<br/>
+          <br/>
+    <strong>      Password Encryption</strong>     <br/>
+          Password Encrytion specifies password hashing/ encryption type for new passwords that will be generated for users. <br/>
+          <strong> None </strong>If the passwords in the password column of users table is normat text and not a hashed/encrypted value.<br/>
+          <strong> md5 </strong>If the Password hashing is of type md5. <i>Note:  md5 format is a 32 digit string. ex. e10adc3949ba59abbe56e057f20f883e </i><br/>
+          <strong> sha1 </strong>If the Password encryption is of type sha1.<br />
+          <br/>
+        </li>
+        <li><strong>Forgot Password Installtion - Step 2</strong><br />
+        Here all tables in your database is shown. Possible User table suggestions are in red. Select the table that is your users table and click "Next". <br />
+        If you think you do not have a users table click on "Prev" and select "No" to create a basic users table.      <br/> <br/>   </li>
+        
+        <li><strong>Forgot Password Installtion - Step 3</strong><br />
+        This page shows the columns for your selected table and automatically tries to match table column to user id, username, password, email, password, first name, and last name columns needed for "Forgot Password" script. <br />
+     Please select appropriate table columns here. <br/>
+     You can click "Prev" to select another user table if you think this is not the correct users table.   <br/> <br/>      </li>
+          <li><strong>Forgot Password Installation - Step 4</strong><br />
+       Make sure all the information entered in previous steps is correct and scroll towards bottom to enter<strong> from email, company name and company short name </strong>and click "Next". <br/> 
+       <i>Enter your Company or Organization name and a short name for your company. This shows in password recovery email.</i>  <br/><br/>
+        </li>
+         </li>
+        <li><strong>  Forgot Password Installtion - Finish</strong><br />
+     Copy the "Forgot Password" hyperlink generate here. and exit the installer.<br /> Do not forget to delete the "installr" folder once you are finished with installtion.<br/>  <br/>  
+     
+      You will need to place the newly created "Forgot Password" hyperlink at the bottom of your login page. <br/><br/>
+        </li>
+               
+      
+	    <li> To match the design of requestreset.php, resetpassword.php and resetinvalid.php with rest of your files you can link it to your stylesheet at line number 16, line number 18 and line number 8 respectively. This step is &quot;Optional&quot;. <br/> <br/></li>
+	    <li> Open your user login page or the page in which you want to add the forgot password link in dreamweaver. Paste "Forgot Password" hyperlink below the form. Make sure the relative url in the anchor tag is the correct location of the requestreset.php file. <br />
+            <pre>&lt;a href=&quot;requestreset.php&quot;&gt;Forgot Password&lt;/a&gt;</pre>
+	      <br/>
+            <img src="assets/images/login.jpg" alt="Login Page" style="text-align:center;"/> <br/>
+        </li>
+	    <li> Open the login page in your web browser and click on the "ForgotPassword" link. Try resetting password for a user. </li>
+      </ol>
+	  <h3>&nbsp;</h3>
+	  <h3><strong>C) Detailed Integration (Advanced Users Only)</strong> - <a href="#toc">top</a></h3>
+	  <p><i><strong>Prerequisites: </strong>Your project has a User Login Page. </i></p>
+        <p>Deatiled Integration steps are for advanced users who have some experience in website development and PHP.</p>
+      <p>Forgot Password Script can be integrated in your existing user management system.   </p>
+        
+	  <h3>Step-By-Step Integration:</h3>
+               
+		<ol>
+        <li>Extract ForgotPasswordScrip.zip. </li>
+        <li>Locate rconfig-sample.php file inside ForgotPassword - includes folder <br />
+         Rename it to rconfig.php<br />
+        Open rconfig.php in a text editor like Dreamweaver.      <br /><br />
+        <strong>Database Connection Information</strong><br /><br />
+        At Line Number 9,10,11,12 add database information i.e database host name, database name, database user and password respectively. <br />
+        <pre>define('DB_HOST', 'Database Host Name here'); 		/*Enter the database hostname. */
+define('DB_NAME', 'Database Name here');				/*Enter the database name. */
+define('DB_USER','Database User Name here');			/*Enter the database user name. */
+define('DB_PASS','Database User Password here');		/*Enter the database user password. */</pre>
+         <strong>Database Table Prefix</strong><br />
+         At Line Number 13 add table prefix. If  tables in your database are in format  someprefix_tablename then someprefix is your table prefix and should be entered here. 
+ If your tablename names do not have a table prefix leave it blank.
+         <pre>define('DB_TABLEPREFIX',''); 		/*Enter the  table prefix in your database here.(optional) */</pre>
+         <strong>Users Table Name in Database</strong><br />
+   At Line Number 15 add user table name. It is the table in your database that has username and password of all users.<br />
+        <pre>define('DB_USERTABLE','Your user table name here'); 		/*Enter the  user table name. */</pre>
+      <strong>User Table Column Names</strong><br />
+ At Line Number 17, 18, 19, 20, 21, 22 you need to identify and enter the column names  in users table that contain user's id (primary key), username, password, email(optional if username is an email), first name(optional), Full Name(optional).
+
+ <pre>define('DB_USERIDCOL', 'id'); 		/*Enter the database user id column. */<br>define('DB_USERNAMECOL', 'username'); 		/*Enter the database username column. */<br>define('DB_USERPASSCOL', 'password'); 	/*Enter the database user password column. */<br>define('DB_USEREMAILCOL', 'email'); 		/*Enter the database user email column. */
+define('DB_FNAMECOL', ''); 		/*Enter the database username column. */
+define('DB_LNAMECOL', ''); 		/*Enter the database user password column. */</pre>
+      <strong>Company Details</strong><br />
+ At Line Number 24,  25, 26 enter your Company or Organization name  and a short name for your company. This shows in password recovery email.
+
+ <pre>define('FROMEMAIL', 'support@sixthlife.net'); /*Enter the From Email for Password Recovery Email. */
+define('COMPANYNAME', 'Satyam Tech'); 		/*Enter the Company Name. */
+define('COMPANY_SHORTBANE', 'Satyam Technologies');	/*Enter the Company Short Name. */</pre>
+    <strong>Generated Password</strong><br />
+ At Line Number  28, 29, 30 enter minimum password length, password validation and  password encryption.<br /><br/>
+ Password Validation specifies validation rules for new passwords that will be generated for users. <br/>
+<strong> alpha </strong>to allow only alphabets<br/>
+<strong> alphanumeric </strong>to allow only alphabets and numbers only<br/>
+<strong> alphanumeric + special </strong>to allow only alphabets and numbers and special characters only<br/><br/>
+
+ Password Encrytion specifies password hashing/ encryption type for new passwords that will be generated for users.  <br/>
+<strong> None </strong>If the passwords in the password column of users table is normat text and not a hashed/encrypted value.<br/>
+<strong> md5 </strong>If the Password hashing is of type md5.   <i>Note:  md5 format is a 32 digit string. ex. e10adc3949ba59abbe56e057f20f883e </i><br/>
+<strong> sha1 </strong>If the Password encryption is of type sha1.<br/>
+          <pre>define('MINPASSLENGTH', '6'); 		/*Enter the minimum length of passwords that will be generated. */<br />define('PASSVALIDATION', 'none');  /*Enter the Password Validation alpha, alphanumeric or alphanumeric + special<br />define('PASSENCRYPT', 'none'); 		/*Enter the Password Encryption md5, sha1, or none. */</pre>
+          <br />
+          </li>
+ 
+<li> Import activeresets.sql file from the sql folder in your database. <br/>
+if you are integrating this in a new project and do not have users table you can import users.sql. <br />
+</li>
+
+          
+        <li>
+        To match the design of requestreset.php, resetpassword.php and resetinvalid.php with rest of your files you can link it to your stylesheet at line number 16, line number 18 and line number 8 respectively.        </li>
+        <li>
+        Upload all files from the ForgotPassword folder to your server where your login page is uploaded. </li>
+        <li> Open your user login page or the page in which you want to add the forgot password link in dreamweaver. Add a hyperlink to  requestreset.php file  as shown below.<br />
+        <pre>&lt;a href=&quot;requestreset.php&quot;&gt;Forgot Password&lt;/a&gt;</pre><br/>
+          <img src="assets/images/login.jpg" alt="Login Page" style="text-align:center;"/>
+          	<br/>
+        </li>
+        
+         <li> Open the login page in your web browser and click on the "ForgotPassword" link. Try resetting password for a user.        </li>
+		</ol>		
+
+
+
+<hr />
+
+		<h3 id="dcustomize"><strong>D) Customize Design </strong> - <a href="#toc">top</a></h3>
+
+	  <p>The three pages requestreset.php, resetinvalid.php and resetpassword.php can be files with custom design created by you. A form and few lines of php can help you integrate your pages with this script. </p>
+		<ol>
+        <li> Open your custom designed requestreset.php file in a text editor like dreamweaver. </li>
+        
+         <li> Add this code to the very in the requestreset page for database connection. 
+         	<pre>&lt;?php 
+            include ('includes/rconfig.php');				
+           include ('includes/rfunctions.php');			 	
+           dbConnect(DB_HOST, DB_USER,DB_PASS, DB_NAME);		       				
+           ?&gt;</pre>
+           </li>       
+            <li> Add this code in the requestreset page to create an object of  RecoverPas class and use the initiateReset function to send a pasword reset email.
+         	<pre>
+            &lt;?php 
+include ('includes/class.recoverpas.php');
+$forgotpass = new RecoverPas(); 	
+$forgotpass->initiateReset();				       				
+?&gt;
+            </pre>
+           </li> 
+           <li>Create a form with one text field where username/ email can be entered. The textfield name attribute will be "emailuname". 
+            <pre>For example.
+           
+    &lt;form action=&quot;&quot; method=&quot;post&quot; &gt; &lt;label for=&quot;emailuname&quot;&gt;&lt;/label&gt;<br>&lt;input type=&quot;text&quot;  name=&quot;emailuname&quot; value=&quot;&quot; maxlength=&quot;150&quot; /&gt;<br>&lt;input type=&quot;submit&quot;  name=&quot;submit&quot; value=&quot;SUBMIT&quot; /&gt;<br>&lt;/form&gt;         </pre>
+    <i>NOTE: The form action is blank, method is POST.</i><br />
+      <i> A form submit button is added.</i><br />
+    <i>The textfield name can be something other than "emailuname". When you change it you need to call the initiateReset method with a parameter.  $forgotpass->initiateReset('newusernamefieldname'); </i> </li> 
+                   <li>To display any errors that may occur when a user enters wrong username etc. Add this line above the form or any other suitable place.
+                   <pre>&lt;?php $forgotpass-&gt;printError(); ?&gt;</pre>
+                   </li>   
+                   <li>To display messages other than errors .
+                   <pre>&lt;?php $forgotpass-&gt;printSuccess(); ?&gt;</pre>
+                   </li>   
+        </ol>
+        
+        <ol>
+        <li>Open your custom designed resetpassword.php file in a text editor like dreamweaver.        </li>
+        <li>Add code for database connection as done in requestreset.php page step 2.</li>
+        
+          <li>This time you need to call the resetPassword method. 
+          Add the code below just below the database connection code in the resetpassword.php file.
+                   	<pre>
+            &lt;?php 
+include ('includes/class.recoverpas.php');
+$forgotpass = new RecoverPas(); 	
+$forgotpass->resetPassword();				       				
+?&gt;            </pre>
+          </li>
+                     <li>Create a form with two password fields with name attribute &quot;password&quot; and &quot;rpassword&quot; respectively.
+                       <pre>For example.
+            &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+              &lt;input type=&quot;password&quot;  class=&quot;mycontent&quot; name=&quot;password&quot; value=&quot;&quot; /&gt;
+           &lt;input type=&quot;password&quot; class=&quot;mycontent&quot;  name=&quot;rpassword&quot; value=&quot;&quot; /&gt;
+                     
+                &lt;input type=&quot;submit&quot;  name=&quot;submit&quot; value=&quot;SUBMIT&quot; /&gt;
+                            &lt;/form&gt;
+                     </pre>
+                       <i>NOTE: The form action is blank, method is POST.</i><br />
+                       <i> A form submit button is added.</i><br />
+                       <i> The password field name can be something other than &quot;password&quot; and &quot;rpassword&quot;. When you change the name you need to call the initiateReset method with  the new passowrd field names as parameters.  $forgotpass->resetPassword(''newpasswordfieldname', 'repeatpasswordfieldname');   </i>                       </li>
+           <li>Add a line of code to display erros and messages as you did for requestreset page step 5 and step 6. </li>
+        </ol>
+	
+<p>
+        The resetinvalid.php you designed can be used as is. 
+        
+      </p>
+       
+	<p>Repalce three files requestreset.php, resetpassword.php and resetinvalid.php with the custom desinged three files that you just created. Make sure you have backup before you replace the files.</p>	
+
+<hr>
+		
+		<h3 id="scustomize"><strong>C) Customize Script</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This script can be customize ro have custom password reset email messages sent to your users. The error messages and success messages can have custom text, the passwords  can be in a particular format only etc.  </p>
+		
+		<ol><li><p>Passwords can be in a particular format i.e text format,only text, with minimum length. &lt;br /&gt; By default the passwords allowed on the resetpassword.php page can be any charaters with a minimum length of 6. Allowed conditons for passwords are . len = 6, alpha, alphanumeric, alpha+special, alphanumeric+special
+           </p>
+          <i> To allow a password with minimum length 10 and containing at least 1 alphabet, number and special character. You need to call resetPassword method on 
+          resetpassowrd.php page line number 9 with a parameter. </i>
+            
+          <pre> $forgotpass->resetPassword(,,'len=10&alphanumeric+special');	</pre>
+            </li>
+			<li>Change Subject Line of the Password Reset Email sent to the users. <br />
+			  In the requestreset.php page  below line number 8  add this code to set the Reset Email Subject.  
+                <pre>
+&lt;?php            
+$forgotpass->resetmailsubj = "New Reset Email Subject";
+?&gt;            
+            </pre>
+            </li>
+			<li>Adding a Custom Email Message.<br />
+            If you decide to have a custom email message. Both HTML and text format Email Messages should be set.<br />
+            In the requestreset.php page add this code. 
+            <pre>&lt;?php  //For Text format Message
+            $textmessage =&quot;Dear {username},\r\n 
+To reset your password please follow the link below:\n&quot;; 
+{reseturl}\n
+Regards\n, my Company\r\n
+
+&quot;;
+ $forgotpass->setResetMessage($textmessage)           
+            ?&gt;
+   &lt;?php  //For HTML format Message
+            $textmessage =&quot;Dear {username},\r\n 
+To reset your password please follow the link below:\n&quot;; 
+{reseturl}\n
+Regards\n, my Company\r\n
+
+&quot;;
+ $forgotpass->setResetMessageHTML($htmlmessage)           
+            ?&gt;         </pre>
+            <i>NOTE:Use {username} to insert the user's name and 
+{reseturl} to insert the password reset url i nthe email message body.</i>              </li>
+			<li>To have custom error and success message in the requestreset.php file line number 8 just after instantiating the recoverpas class call newMessage method like this.<br />
+            <pre>
+
+$forgotpass-&gt;newMessage('invalid',&quot;Your custom message when username or email is invalid.&quot;);
+</pre>
+The first parameter that goes inside newMessage method can be 
+<ul>
+<li>invalid    &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;   Default Message: Invalid Username/ Email Address.</li>
+
+<li>noexist          &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;    Default Message: This Username/ Email does not exist.</li>
+
+<li>noblank        &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;     Default Message: Username/ Email cannot be blank.</li>
+
+<li>minlength       &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;    Default Message: Password does not match the minimum length  critera.</li>
+
+<li>alphaonly       &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;    Default Message: Password can contain alphabets only.</li>
+
+<li>alphanum,      &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;     Default Message: Password can contain alphabets and numbers only.</li>
+
+<li>alphasp        &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;     Default Message: Password should have alphabets and special characters only.</li>
+
+<li>alphanumsp     &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;     Default Message: Password should contain alphabets, numbers and special characters.</li>
+
+<li>spchar          &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;    Default Message: Password should have atleast one special character.</li>
+
+<li>nomatch     &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;        Default Message: Passwords do not match.</li>
+
+<li>error           &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;   Default Message: There was an error.</li>
+
+<li>tryagain        &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;    Default Message: There was an Error. Please try again.</li>
+
+<li>resetsent        &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;   Default Message: A Password reset email was sent sucessfully.</li>
+
+<li>passchanged     &nbsp;   &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;   Default Message: Your Password was changed sucessfully.</li>
+</ul>
+            </li>
+        </ol>
+		  
+<hr>
+		
+		<h3 id="recoverpasclass"><strong>D) RecoverPas Class</strong> - <a href="#toc">top</a></h3>
+		
+		<p>class.RecoverPas.php has follwoing public attributes and Method that can be useful.</p>
+		
+        	<strong> Public Attributes.</strong>
+			<ul>
+				<li>
+				  <pre>companyname      Sample Code to change $forgotpass->resetmailsubj = "New Reset Email Subject";</pre>
+				</li>
+				<li>
+				  <pre>companyshortname</pre>
+				</li>
+				<li><pre>resetemailfrom</pre></li>
+			    <li><pre>resetmailsubj</pre></li>
+		    </ul>
+		
+<strong>Public Methods.</strong>
+			<ul>
+				<li><pre>initiateReset($emailunameinput = 'emailuname')
+/*Initiates sending of reset email once user 
+fills email/ username in the forgot passwod 
+form.*/</pre> </li>
+				<li><pre>resetPassword($passinput='password', $rpassinput='rpassword', $validations ='len=6')<br />
+//len = 6, alpha, alphanumeric, alpha+special, alphanumeric+special
+/*Once Reset Password Email is clicked and password
+ is entered twice this function vlaidates data and 
+ changes password. */</pre>
+                </li>
+				<li><pre>printError()
+                /* Prints Errors if they occur */
+                </pre></li>
+			    <li><pre>printSuccess()
+ /* Prints Success messages for example when
+ a reset mail is sent or when password is 
+ changed */
+                </pre></li>
+                <li><pre>setResetSubject($emailsubject="")
+ /*Option method to set a custom subject for the reset email*/
+                </pre></li>
+                
+                  <li><pre>setResetMessage($textmessage="")
+/*Optional method to set a custom message in text 
+format for the reset email. Use {username} and 
+{reseturl} to insert respective variables. */
+                </pre></li>              
+  
+                  <li><pre>setResetMessageHTML($htmlmessage="")
+/*Optional method to set a custom message in html 
+format for the reset email. Use {username} and 
+{reseturl} to insert respective variables. */
+                </pre></li>   
+                
+                 <li><pre>setEncryption($encryption)
+/*method to set password encryption method to md5 
+or sha1 or blank. */                </pre></li>          
+                
+		    </ul>
+	
+	
+
+		<p>Once again, thank you so much for purchasing this script. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. </p> 
+		
+		<p class="append-bottom alt large"><strong>Sixth Life</strong></p>
+		
+		<p>	<strong>Note: </strong>"Forgot Password" script supports no password hashing/ encryption, md5 hashing or sha1 hashing with default parameters and no salt as of now. </p>
+	
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
